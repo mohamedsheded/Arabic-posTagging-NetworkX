@@ -173,6 +173,40 @@ Here is the table of results after fine-tuning for 3 epochs:
 To visualize the transitions between POS tags, we can create a directed graph using NetworkX. Each unique POS tag is represented as a node, and edges represent transitions from one tag to another.
 ![image](https://github.com/user-attachments/assets/2f4434ec-64af-40f1-ac76-7bf8c844e597)
 
+# Challenges and Solutions in Arabic NLP Project
+
+This document outlines the primary challenges faced during our Arabic NLP project and the solutions implemented to address them.
+
+---
+
+## 1. Challenge: Finding a Pretrained Tokenizer for Arabic Corpus/Data
+
+### Problem
+Most tokenizers available are designed for English or multilingual corpora, which are not well-suited to the unique linguistic and morphological characteristics of the Arabic language. This created difficulties in accurately tokenizing Arabic text.
+
+### Solution
+- **Testing Multiple Tokenizers:** We evaluated several tokenizers, including those specifically pretrained on Arabic datasets (e.g., AraBERT) and multilingual models (e.g., mBERT, XLM-R).
+- **Selection Process:** Through systematic evaluation based on tokenization quality and downstream task performance, we identified the most effective tokenizer for our project.
+
+---
+
+## 2. Challenge: Unalignment of Sub-Tokens with Labels
+
+### Problem
+When using subword tokenization methods like WordPiece or Byte-Pair Encoding, a single word may be split into multiple sub-tokens. This misalignment caused inconsistencies between sub-tokens and their respective labels, especially for sequence labeling tasks like Named Entity Recognition (NER).
+
+### Solution
+- **Alignment Function:** We developed an alignment function to handle this issue effectively:
+  - **Ignoring Special Tokens:** Special tokens (e.g., `[CLS]`, `[SEP]`) and sub-tokens without corresponding labels were excluded.
+  - **Setting Ignored Tokens to –\u100:** Sub-tokens without associated labels were assigned a label of `-100` to ensure they were ignored by the loss function during training.
+  - **Maintaining Consistency:** This approach preserved the alignment between tokens and labels, leading to more reliable training and evaluation.
+
+---
+
+### Summary
+By systematically addressing these challenges, we ensured robust handling of Arabic text, enabling the successful implementation of our NLP pipeline. These solutions improved both the quality of tokenization and the alignment necessary for effective sequence labeling tasks.
+
+
 
 # References
 - **XLM-RoBERTa Tokenizer**: [FacebookAI/xlm-roberta-base](https://huggingface.co/FacebookAI/xlm-roberta-base)
