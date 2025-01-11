@@ -49,7 +49,6 @@ This document outlines the methodology and steps taken to investigate and prepro
 
 ## Dataset Description
 The dataset consists of sentences with associated POS tags. Each row represents a word or token from a sentence, along with its corresponding POS tag. The columns in the dataset include:
-- **sentence_id**: Unique identifier for each sentence.
 - **text**: The word or token.
 - **tags**: The POS tag associated with the word.
 
