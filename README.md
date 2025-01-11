@@ -169,3 +169,13 @@ Here is the table of results after fine-tuning for 3 epochs:
 | .           | PUNCT  | 0.999757 |
 
 
+# NetworkX Graph Representation
+To visualize the transitions between POS tags, we can create a directed graph using NetworkX. Each unique POS tag is represented as a node, and edges represent transitions from one tag to another.
+![image](https://github.com/user-attachments/assets/2f4434ec-64af-40f1-ac76-7bf8c844e597)
+
+
+# References
+- **XLM-RoBERTa Tokenizer**: [FacebookAI/xlm-roberta-base](https://huggingface.co/FacebookAI/xlm-roberta-base)
+- **Seqeval Documentation**: [Seqeval Docs](https://github.com/chakki-works/seqeval)
+- **Arabic POS Tagging with Machine Learning**: [Omdena Blog](https://www.omdena.com/blog/machine-learning-and-nlp-for-arabic-part-of-speech-tagging)
+- **NER Fine-Tuning Tutorial**: [YouTube Tutorial](https://www.youtube.com/watch?v=Q1i4bIIFOFc)
