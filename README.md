@@ -198,7 +198,7 @@ When using subword tokenization methods like WordPiece or Byte-Pair Encoding, a 
 ### Solution
 - **Alignment Function:** We developed an alignment function to handle this issue effectively:
   - **Ignoring Special Tokens:** Special tokens (e.g., `[CLS]`, `[SEP]`) and sub-tokens without corresponding labels were excluded.
-  - **Setting Ignored Tokens to –\u100:** Sub-tokens without associated labels were assigned a label of `-100` to ensure they were ignored by the loss function during training.
+  - **Setting Ignored Tokens to –100:** Sub-tokens without associated labels were assigned a label of `-100` to ensure they were ignored by the loss function during training.
   - **Maintaining Consistency:** This approach preserved the alignment between tokens and labels, leading to more reliable training and evaluation.
 
 ---
